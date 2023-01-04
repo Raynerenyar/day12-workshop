@@ -1,0 +1,26 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- the numOfNums object is just an Integer rendered by the controller postRandNum method -->
+    <h1>Your list of <span data-th-text="${numOfNums}"></span> random numbers</h1>
+    <!-- for each loop for the array in randNumArray object which is an array -->
+    <!-- for every randNum in the array, Thymeleaf will duplicate and add these tags within the tag that contains the data-th-each attribute -->
+    <ul data-th-each="randNum : ${randNumArray}">
+        <li data-th-text="${randNum}"></li>
+        <!-- by default spring serves the contents in the /resources/static or /resources/templates folder -->
+        <!-- the @ will prepend the base URL which is localhost:8080 in this case -->
+        <!-- if randNum = 0 -->
+        <!-- ${'/images/number'  + randNum + '.jpg'} will first resolve to /images/number0.jpg -->
+        <!-- then @{/images/number0.jpg} resolves to localhost:8080/images/number0.jpg -->
+        <img data-th-src="@{${'/images/number'  + randNum + '.jpg'}}" alt="" width="300" height="300">
+    </ul>
+</body>
+
+</html>

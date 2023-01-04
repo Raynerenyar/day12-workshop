@@ -1,0 +1,27 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>How many numbers do you wish to generate?</h1>
+</body>
+<!--    1. generatedObj is an instantiation of Generate class
+        2. data-th-object="${generatedObj} declares the model object to use for collecting the form data
+        3. data-th-action directs the form to POST to the /rand/result endpoint of the URL
+        form sends data to the url in the action attribute
+        4. this html file template is controlled by the showRandForm method in the controller class -->
+<form action="#" data-th-action="@{/rand/result}" data-th-object="${generatedObj}" method="post">
+    <p>
+        <!-- input value to store in generatedObj.numberVal -->
+        <input type="text" data-th-field="${generatedObj.numOfNums}">
+        <input type="submit" value="Generate random numbers">
+    </p>
+
+</form>
+
+</html>
